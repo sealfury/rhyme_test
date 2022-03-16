@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
 export const useFetch = () => {
-  const API_URI = process.env.REACT_APP_API_URI
+  const API_URI =
+    'http://ec2-3-249-202-253.eu-west-1.compute.amazonaws.com/articles'
 
-  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState({ show: false, msg: '' })
   const [data, setData] = useState(null)
 
   const fetchArticles = async (url) => {
-    setIsLoading(true)
     try {
       const response = await fetch(url)
+      console.log(response)
       const data = await response.json()
 
       if (!data) {
@@ -18,7 +18,6 @@ export const useFetch = () => {
       }
 
       setData(data)
-      setIsLoading(false)
     } catch (err) {
       console.error(err)
     }
@@ -27,6 +26,6 @@ export const useFetch = () => {
       fetchArticles(API_URI)
     }, [])
 
-    return { isLoading, error, data }
+    return { error, data }
   }
 }

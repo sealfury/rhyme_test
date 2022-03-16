@@ -1,20 +1,31 @@
 import React, { useState } from 'react'
-import { Article } from '../models/article.model'
+import { useAppCtx } from '../context/context'
 import { useFetch } from '../utils/useFetch'
 
 const Articles = () => {
-  const { isLoading, error, data } = useFetch(process.env.REACT_APP_API_URI)
+  // const { articles, isLoading } = useAppCtx()
+  const { articles } = useFetch(
+    'http://ec2-3-249-202-253.eu-west-1.compute.amazonaws.com/articles',
+  )
 
-  const [articles, setArticles] = useState(data)
-
-
+  // if (isLoading) {
+  //   return <div>Loading Loading</div>
+  // }
 
   return (
-    <>
-      <h1>
-        Article list
-      </h1>
-    </>
+    <section>
+      {articles.map((article) => {
+        const { id: _id, author, title, description } = article
+
+        return (
+          <article>
+            <h4>{title}</h4>
+            <h5>By: {author}</h5>
+            <p>{description}</p>
+          </article>
+        )
+      })}
+    </section>
   )
 }
 

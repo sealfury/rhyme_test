@@ -1,15 +1,16 @@
-import { useContext, useEffect, createContext } from 'react'
+import { useContext, createContext } from 'react'
 import { useFetch } from '../utils/useFetch'
 
-export const API_URI = process.env.REACT_APP_API_URI
+export const API_URI =
+  'http://ec2-3-249-202-253.eu-west-1.compute.amazonaws.com/articles'
 
-export const AppCtx = createContext()
+const AppCtx = createContext()
 
-export const AppProvider = ({ children }) => {
-  const { isLoading, error, data: articles } = useFetch()
+const AppProvider = ({ children }) => {
+  const { error, data: articles } = useFetch(API_URI)
 
   return (
-    <AppCtx.Provider value={{ isLoading, error, articles }}>
+    <AppCtx.Provider value={{ error, articles }}>
       {children}
     </AppCtx.Provider>
   )
@@ -18,3 +19,5 @@ export const AppProvider = ({ children }) => {
 export const useAppCtx = () => {
   return useContext(AppCtx)
 }
+
+export { AppCtx, AppProvider }
