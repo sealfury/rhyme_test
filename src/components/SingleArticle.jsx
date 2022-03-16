@@ -8,6 +8,12 @@ const SingleArticle = () => {
   const { viewArticle } = useAppCtx()
   const { title, author, description, body } = viewArticle(id)
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    // business logic goes here
+    setIsEditing(false)
+  }
+
   return (
     <>
       <h2>Single Article Page</h2>
