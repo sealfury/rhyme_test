@@ -1,0 +1,36 @@
+.articles-section {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .articles-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.article {
+  background: #ffffff;
+  border-radius: 0.2rem;
+  padding: 1rem 2rem;
+}
+
+.title {
+  line-height: 1.5;
+  margin-bottom: 0.2rem;
+}
+
+.author {
+  line-height: 1.2;
+  margin-bottom: 0.1rem;
+}
+
+.description {
+  margin-bottom: 0.5rem;
+  color: #617d98;
+}

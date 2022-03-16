@@ -1,6 +1,5 @@
 import { useAppCtx } from '../context/context'
 
-
 const Articles = () => {
   const { isLoading, articles, removeArticle, viewArticle } = useAppCtx()
 
@@ -9,20 +8,20 @@ const Articles = () => {
   }
 
   return (
-    <section>
+    <section className="articles-section">
       {articles.map((article) => {
         const { _id: id, author, title, description } = article
 
         return (
-          <article key={id}>
+          <article key={id} className="article">
             <a href={`/articles/${id}`} onClick={() => viewArticle(id)}>
-              <h3>{title}</h3>
+              <h3 className="title">{title}</h3>
             </a>
-            <h4>{author}</h4>
-            <p>{description}</p>
+            <h4 className="author">{author}</h4>
+            <p className="description">{description}</p>
             <button
               type="button"
-              className="btn btn-danger"
+              className="remove-btn"
               onClick={() => removeArticle(id)}
             >
               Remove This Article
