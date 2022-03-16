@@ -1,3 +1,4 @@
+import './Articles.css'
 import { useAppCtx } from '../context/context'
 
 const Articles = () => {
@@ -14,7 +15,7 @@ const Articles = () => {
 
         return (
           <article key={id} className="article">
-            <a href={`/articles/${id}`} onClick={() => viewArticle(id)}>
+            <a href={`/articles/${id}`} className='article-link' onClick={() => viewArticle(id)}>
               <h3 className="title">{title}</h3>
             </a>
             <h4 className="author">{author}</h4>

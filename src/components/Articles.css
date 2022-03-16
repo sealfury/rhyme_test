@@ -34,3 +34,20 @@
   margin-bottom: 0.5rem;
   color: #617d98;
 }
+
+.remove-btn {
+  background: transparent;
+  color: #6a1d1d;
+  border-color: transparent;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+
+.article-link {
+  font-size: 0.85rem;
+  margin-right: 0.75rem;
+  text-transform: capitalize;
+  color: #49a6e9;
+  text-decoration: none;
+}
