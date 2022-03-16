@@ -1,9 +1,10 @@
 import React from 'react'
+import Articles from './components/Articles'
 
 const App: React.FC = () => {
   return (
     <>
-      <h1>Hello There</h1>
+      <Articles />
     </>
   )
 }
