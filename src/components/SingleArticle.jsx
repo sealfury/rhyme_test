@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SingleArticle: React.FC = () => {
+const SingleArticle = () => {
   return (
     <>
       <h1>Single Article Page</h1>

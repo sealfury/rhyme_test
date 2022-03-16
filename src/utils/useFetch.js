@@ -7,7 +7,7 @@ export const useFetch = () => {
   const [error, setError] = useState({ show: false, msg: '' })
   const [data, setData] = useState(null)
 
-  const fetchArticles = async (url: string) => {
+  const fetchArticles = async (url) => {
     setIsLoading(true)
     try {
       const response = await fetch(url)
@@ -24,7 +24,7 @@ export const useFetch = () => {
     }
 
     useEffect(() => {
-      fetchArticles(API_URI as string)
+      fetchArticles(API_URI)
     }, [])
 
     return { isLoading, error, data }
