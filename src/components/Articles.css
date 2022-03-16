@@ -2,6 +2,7 @@
   width: 90vw;
   max-width: 1170px;
   margin: 0 auto;
+  margin-top: 2rem;
   margin-bottom: 5rem;
   display: grid;
   gap: 2rem;
@@ -16,7 +17,7 @@
 
 .article {
   background: #ffffff;
-  border-radius: 0.2rem;
+  border-radius: 0.6rem;
   padding: 1rem 2rem;
 }
 
