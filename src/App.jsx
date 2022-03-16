@@ -7,8 +7,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact component={Articles}></Route>
-        <Route path="/articles/:id" component={SingleArticle}>
+        <Route path="/" exact element={<Articles />}></Route>
+        <Route path="/articles/:id" element={<SingleArticle />}>
           {' '}
         </Route>
       </Routes>
