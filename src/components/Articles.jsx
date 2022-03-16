@@ -1,27 +1,32 @@
-import React, { useState } from 'react'
 import { useAppCtx } from '../context/context'
-import { useFetch } from '../utils/useFetch'
+
 
 const Articles = () => {
-  // const { articles, isLoading } = useAppCtx()
-  const { articles } = useFetch(
-    'http://ec2-3-249-202-253.eu-west-1.compute.amazonaws.com/articles',
-  )
+  const { isLoading, articles, removeArticle, viewArticle } = useAppCtx()
 
-  // if (isLoading) {
-  //   return <div>Loading Loading</div>
-  // }
+  if (isLoading) {
+    return <div>Loading Loading</div>
+  }
 
   return (
     <section>
       {articles.map((article) => {
-        const { id: _id, author, title, description } = article
+        const { _id: id, author, title, description } = article
 
         return (
-          <article>
-            <h4>{title}</h4>
-            <h5>By: {author}</h5>
+          <article key={id}>
+            <a href={`/articles/${id}`} onClick={() => viewArticle(id)}>
+              <h3>{title}</h3>
+            </a>
+            <h4>{author}</h4>
             <p>{description}</p>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => removeArticle(id)}
+            >
+              Remove This Article
+            </button>
           </article>
         )
       })}
