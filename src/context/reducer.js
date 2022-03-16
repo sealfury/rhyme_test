@@ -14,14 +14,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         articles: state.articles.filter(
-          (article) => article.id !== action.payload,
+          (article) => article._id !== action.payload,
         ),
       }
     case Action.VIEW_ARTICLE:
       return {
         ...state,
         article: state.articles.filter(
-          (article) => article.id === action.payload,
+          (article) => article._id === action.payload,
         ),
       }
     default:
